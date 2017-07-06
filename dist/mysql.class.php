@@ -20,7 +20,7 @@ Class DB {
 
 		$this->time = $this->microtime_float();
 
-		include(dirname(__FILE__)."../conn.php");
+		include("conn.php");
 
 		$this->connect($db_config["hostname"], $db_config["username"], $db_config["password"], $db_config["database"], $db_config["pconnect"]);
 
@@ -70,7 +70,7 @@ Class DB {
 
 		}
 
-		@mysqli_query("set names ".$charset);
+		@mysqli_query($this->link_id, "set names ".$charset);
 
 	}
 
